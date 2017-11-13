@@ -12,32 +12,96 @@ public class User {
     @Id
     private Long id;
     private String password;
-    private String name;
-    @Generated(hash = 861448798)
-    public User(Long id, String password, String name) {
-        this.id = id;
-        this.password = password;
-        this.name = name;
-    }
-    @Generated(hash = 586692638)
-    public User() {
-    }
+    private String userName;
+    private String realName;
+    private String avatarPath;
+    private long mobileNumber;
+    private String email;
+    private Boolean isSuperuser = false;
+    private int level = 1;
+    private int experience = 0;
+
     public Long getId() {
-        return this.id;
+        return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getPassword() {
-        return this.password;
+        return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getName() {
-        return this.name;
+
+    public String getUserName() {
+        return userName;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getAvatarPath() {
+        return avatarPath;
+    }
+
+    public void setAvatarPath(String avatarPath) {
+        this.avatarPath = avatarPath;
+    }
+
+    public long getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(long mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public Boolean getSuperuser() {
+        return isSuperuser;
+    }
+
+    public void setSuperuser(Boolean superuser) {
+        isSuperuser = superuser;
+    }
+
+    @Generated(hash = 861448798)
+    public User(Long id, String password, String realName, long mobileNumber) {
+        this.id = id;
+        this.password = password;
+        this.realName = realName;
+        this.mobileNumber = mobileNumber;
+    }
+
+    @Generated(hash = 586692638)
+    public User() {
     }
 }
