@@ -6,6 +6,19 @@
     android:layout_height="wrap_content">
 
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/nameViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/nameView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/name_hint"
+            />
+        ></android.support.design.widget.TextInputLayout>
+
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/accountViewLayout"
@@ -20,20 +33,27 @@
             />
         ></android.support.design.widget.TextInputLayout>
 
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/passwordViewLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp">
+        >
 
         <EditText
             android:id="@+id/passwordView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:hint="@string/password_hint" />
+            android:hint="@string/password_hint"
+            />
         ></android.support.design.widget.TextInputLayout>
 
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="注册"/>
 
 
 </LinearLayout>
