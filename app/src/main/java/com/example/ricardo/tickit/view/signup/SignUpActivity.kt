@@ -19,7 +19,7 @@ class SignUpActivity : BaseActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        val mUser: User = User(2,"alex","alexander")
+        //val mUser: User = User(2,"alex","alexander")
 
         userDao = loadDaoSession().userDao
         //userDao?.insert(mUser)
@@ -27,7 +27,7 @@ class SignUpActivity : BaseActivity(){
         val users = userDao!!.queryBuilder()
         val userlist = users.list()
         for (i in userlist){
-            println(i.name)
+            println(i.realName)
         }
 
 
