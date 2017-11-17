@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_signup.*
 class SignUpActivity : BaseActivity(),SignUpView{
     var presenter: SignUpPresenter? = null
 
-    //var users: List<User>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
