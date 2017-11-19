@@ -94,10 +94,11 @@ public class User {
     }
 
     @Generated(hash = 861448798)
-    public User(Long id, String password, String realName, long mobileNumber) {
+    public User(Long id, String password, String realName, String userName, long mobileNumber) {
         this.id = id;
         this.password = password;
         this.realName = realName;
+        this.userName = userName;
         this.mobileNumber = mobileNumber;
     }
 
