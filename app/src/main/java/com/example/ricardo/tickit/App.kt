@@ -17,10 +17,6 @@ class App : Application() {
 
     private var daoSession: DaoSession? = null
     private var daoMaster: DaoMaster? = null
-    //private var db: SQLiteDatabase? = null
-    //private va dbHelper: DaoMaster.DevOpenHelper? = null
-
-
 
     override fun onCreate() {
         super.onCreate()

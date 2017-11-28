@@ -2,37 +2,48 @@ package com.example.ricardo.tickit.view.signup
 
 import android.os.Bundle
 import com.example.ricardo.tickit.R
-import com.example.ricardo.tickit.data.dto.entity.User
-import com.example.ricardo.tickit.extensions.loadDaoSession
-import com.example.ricardo.tickit.greendao.gen.UserDao
+import com.example.ricardo.tickit.data.dto.UserDto
+import com.example.ricardo.tickit.data.model.User
+import com.example.ricardo.tickit.data.network.repository.UserRepository
 import com.example.ricardo.tickit.view.common.BaseActivity
+import kotlinx.android.synthetic.main.activity_signup.*
 
 /**
  * Created by Ricardo on 2017/11/10.
  */
 
-class SignUpActivity : BaseActivity(){
+class SignUpActivity : BaseActivity(),SignUpView{
 
+    override val presenter by lazy { SignUpPresenter(this, UserRepository.get()) }
 
-    var userDao:UserDao? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        //val mUser: User = User(2,"alex","alexander")
-
-        userDao = loadDaoSession().userDao
-        //userDao?.insert(mUser)
-
-        val users = userDao!!.queryBuilder()
-        val userlist = users.list()
-        for (i in userlist){
-            println(i.realName)
-        }
 
 
-        println("signup")
+        signupBtn.setOnClickListener{ signupClick(presenter) }
+
+
     }
 
+
+    fun signupClick(presenter: SignUpPresenter?){
+        println("click")
+
+        val mUser = User("111110","2327","1127","123456780","22222")
+        
+        presenter!!.postAccount(mUser)
+
+
+    }
+
+    override fun show(items: List<User>) {
+        println(items[0].mobileNumber)
+    }
+
+    override fun showError(error: Throwable) {
+        println(error)
+    }
 
 }
