@@ -1,4 +1,4 @@
-package com.example.ricardo.tickit.data.dto.network.provider
+package com.example.ricardo.tickit.data.network.provider
 
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 val retrofit by lazy { makeRetrofit() }
 
 private fun makeRetrofit() : Retrofit = Retrofit.Builder()
-        .baseUrl("igulu.net:8000/users/")
+        .baseUrl("http://igulu.net:8000/users/")
         .client(makeHttpClient())
         .addConverterFactory(GsonConverterFactory.create(Gson()))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

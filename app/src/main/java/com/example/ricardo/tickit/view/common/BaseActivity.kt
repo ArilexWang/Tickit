@@ -8,5 +8,5 @@ import com.example.ricardo.tickit.base.BasePresenter
  */
 
 abstract class BaseActivity : AppCompatActivity() {
-
+    abstract val presenter: BasePresenter
 }

@@ -5,5 +5,6 @@ package com.example.ricardo.tickit.base
  */
 
 interface BasePresenter {
-
+    fun start()
+    fun onViewDestroyed()
 }

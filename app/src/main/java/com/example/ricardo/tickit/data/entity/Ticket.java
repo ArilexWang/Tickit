@@ -1,4 +1,4 @@
-package com.example.ricardo.tickit.data.dto.entity;
+package com.example.ricardo.tickit.data.entity;
 
 /**
  * Created by igulu on 13/11/2017.
