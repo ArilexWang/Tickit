@@ -21,7 +21,9 @@ class SignUpActivity : BaseActivity(),SignUpView{
         setContentView(R.layout.activity_signup)
 
 
+
         signupBtn.setOnClickListener{ signupClick(presenter) }
+
 
     }
 
@@ -30,7 +32,7 @@ class SignUpActivity : BaseActivity(),SignUpView{
         println("click")
 
         val mUser = User("111110","2327","1127","123456780","22222")
-
+        
         presenter!!.postAccount(mUser)
 
 
