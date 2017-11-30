@@ -1,7 +1,6 @@
 package com.example.ricardo.tickit
 
 import android.app.Application
-import android.database.sqlite.SQLiteDatabase
 import com.example.ricardo.tickit.greendao.gen.DaoMaster
 import com.example.ricardo.tickit.greendao.gen.DaoSession
 import kotlin.properties.Delegates

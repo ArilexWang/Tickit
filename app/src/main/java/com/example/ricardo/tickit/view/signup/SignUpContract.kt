@@ -13,7 +13,6 @@ interface SignUpContract {
 
 
     interface Presenter : BasePresenter {
-        //fun loadUser():List<User>
 
         //将账户信息发送到服务器
         fun postAccount(user: User)
