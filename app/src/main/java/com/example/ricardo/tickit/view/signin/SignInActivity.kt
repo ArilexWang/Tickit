@@ -10,14 +10,19 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import com.example.ricardo.tickit.R
+import com.example.ricardo.tickit.base.BasePresenter
+import com.example.ricardo.tickit.data.network.repository.UserRepository
 import com.example.ricardo.tickit.view.common.BaseActivity
 import com.example.ricardo.tickit.view.signup.SignUpActivity
+import com.example.ricardo.tickit.view.signup.SignUpPresenter
 import kotlinx.android.synthetic.main.activity_signin.*
 
 /**
  * Created by yuhanyin on 2017/11/28.
  */
 class SignInActivity: BaseActivity() {
+
+    override val presenter by lazy { SignInPresenter() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)

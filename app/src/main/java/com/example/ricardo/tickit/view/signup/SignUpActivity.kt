@@ -10,6 +10,9 @@ import android.app.Activity;
 import android.provider.ContactsContract
 import android.util.Patterns
 import com.example.ricardo.tickit.R
+import com.example.ricardo.tickit.base.BasePresenter
+import com.example.ricardo.tickit.data.model.User
+import com.example.ricardo.tickit.data.network.repository.UserRepository
 import com.example.ricardo.tickit.view.common.BaseActivity
 import com.example.ricardo.tickit.view.signin.SignInActivity
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -18,17 +21,18 @@ import kotlinx.android.synthetic.main.activity_signup.*
  * Created by Ricardo on 2017/11/10.
  */
 
-class SignUpActivity : BaseActivity(){
+class SignUpActivity : BaseActivity(),SignUpView{
 
+    override val presenter by lazy { SignUpPresenter(this, UserRepository.get()) }
 
     //var userDao:UserDao? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        btn_signup.setOnClickListener(View.OnClickListener { signup() })
+        btn_signup.setOnClickListener { signup() }
 
-        link_signin.setOnClickListener(View.OnClickListener {
+        link_signin.setOnClickListener {
             // Finish the registration screen and return to the Login activity
             val intent = Intent(applicationContext, SignInActivity::class.java)
             startActivity(intent)
@@ -36,22 +40,19 @@ class SignUpActivity : BaseActivity(){
             overridePendingTransition(R.anim.abc_slide_in_bottom,R.anim.abc_slide_in_top )
             //第一个参数为第一个Activity离开时的动画，第二参数为所进入的Activity的动画效果
 
-        })
-        //val mUser: User = User(2,"alex","alexander")
+        }
 
-        //userDao = loadDaoSession().userDao
-        //userDao?.insert(mUser)
-
-        //val users = userDao!!.queryBuilder()
-        //val userlist = users.list()
-        //for (i in userlist){
-            //println(i.name)
-        //}
 
         println("signup")
     }
 
+    override fun show(items: List<User>) {
 
+    }
+
+    override fun showError(error: Throwable) {
+
+    }
     private fun signup() {
         //Log.d(TAG, "Signup")
 
