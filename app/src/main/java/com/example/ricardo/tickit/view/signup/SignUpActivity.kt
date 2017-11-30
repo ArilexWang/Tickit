@@ -21,28 +21,27 @@ class SignUpActivity : BaseActivity(),SignUpView{
         setContentView(R.layout.activity_signup)
 
 
-
         signupBtn.setOnClickListener{ signupClick(presenter) }
 
-
     }
-
 
     fun signupClick(presenter: SignUpPresenter?){
         println("click")
 
-        val mUser = User("111110","2327","1127","123456780","22222")
+        val mUser = User("1111111","2327","1127","1234567811","22222")
         
         presenter!!.postAccount(mUser)
 
+    }
+
+    //注册成功后调用的函数，用户信息存入greenDao,跳转界面
+    override fun onSuccess(items: List<User>) {
+        println(items[0].avatar)
 
     }
 
-    override fun show(items: List<User>) {
-        println(items[0].mobileNumber)
-    }
-
-    override fun showError(error: Throwable) {
+    //注册失败，给出一系列提示
+    override fun onError(error: Throwable) {
         println(error)
     }
 

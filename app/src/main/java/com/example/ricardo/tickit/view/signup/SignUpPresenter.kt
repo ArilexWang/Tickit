@@ -14,9 +14,6 @@ import io.reactivex.disposables.CompositeDisposable
 class SignUpPresenter(val view: SignUpView, val respository: UserRepository): SignUpContract.Presenter {
 
     protected var subscriptins = CompositeDisposable()
-
-    var _view: SignUpContract.View? = null
-
     //var _userDao: UserDao? = null
 
 //
@@ -33,8 +30,8 @@ class SignUpPresenter(val view: SignUpView, val respository: UserRepository): Si
         subscriptins += respository.postAccount(user)
                 .applySchedulers()
                 .subscribeBy (
-                        onSuccess = view::show,
-                        onError = view::showError
+                        onSuccess = view::onSuccess,
+                        onError = view::onError
                 )
     }
 
