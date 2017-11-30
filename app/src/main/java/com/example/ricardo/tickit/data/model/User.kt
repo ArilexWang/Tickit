@@ -16,13 +16,18 @@ class User(
         val nickName: String,
         val realName: String,
         val mobileNumber: String,
-        val password: String
+        val password: String,
+        val avatar: String
 ) :Parcelable {
     constructor(dto: UserDto): this(
             id = dto.pk,
             nickName = dto.fields.nickname,
             realName = dto.fields.realName,
             mobileNumber = dto.fields.mobileNumber,
-            password = dto.fields.password
+            password = dto.fields.password,
+            avatar = dto.fields.avatar
+
     )
+    constructor(id: String, nickName: String,realName: String, mobileNumber: String,password: String):
+            this(id, nickName, realName, mobileNumber, password, "")
 }

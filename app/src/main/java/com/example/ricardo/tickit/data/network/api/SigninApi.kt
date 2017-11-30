@@ -7,14 +7,11 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 
-interface SignupApi {
+interface SigninApi{
     @FormUrlEncoded
-    @POST("userSignUp/")
+    @POST("userSignIn/")
     fun postAccount(
-            @Field("nickname") nickname: String,
             @Field("studentID") studentID: Long,
-            @Field("realName") realName: String,
-            @Field("mobileNumber") mobileNumber: Long,
             @Field("password") password: String
     ): Single<List<UserDto>>
 }

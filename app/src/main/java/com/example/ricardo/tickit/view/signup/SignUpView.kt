@@ -9,7 +9,7 @@ import com.example.ricardo.tickit.data.model.User
 
 interface SignUpView {
 
-    fun show(items: List<User>)
-    fun showError(error: Throwable)
+    fun onSuccess(items: List<User>)
+    fun onError(error: Throwable)
 
 }

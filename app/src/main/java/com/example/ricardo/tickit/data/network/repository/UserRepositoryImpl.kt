@@ -2,6 +2,7 @@ package com.example.ricardo.tickit.data.network.repository
 
 import com.example.ricardo.tickit.data.dto.UserDto
 import com.example.ricardo.tickit.data.model.User
+import com.example.ricardo.tickit.data.network.api.SigninApi
 import com.example.ricardo.tickit.data.network.api.SignupApi
 import com.example.ricardo.tickit.data.network.provider.retrofit
 import io.reactivex.Single
@@ -13,6 +14,7 @@ import io.reactivex.Single
 class UserRepositoryImpl : UserRepository{
 
     val api = retrofit.create(SignupApi::class.java)
+    val signInApi = retrofit.create(SigninApi::class.java)
 
     override fun postAccount(user: User): Single<List<User>> = api.postAccount(
             studentID = user.id.toLong(),
@@ -23,4 +25,11 @@ class UserRepositoryImpl : UserRepository{
     ).map {
         it.map(::User)
     }
+
+    override fun signIn(studentID: String, password: String): Single<List<User>> = signInApi.postAccount(
+            studentID.toLong(),
+            password).map {
+        it.map(::User)
+    }
+
 }
