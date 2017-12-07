@@ -7,6 +7,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,6 +18,7 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
     private SensorManager sensorManager;
     private Sensor sensor;
     private ShakeOption shakeOption = ShakeOption.SHOW;
+    private boolean isShaking = false;
 
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -26,13 +28,23 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
             float y = event.values[1];
             float z = event.values[2];
 
-            //TODO
+            if (Math.abs(x) > 17 || Math.abs(y) > 17 || Math.abs(z) > 17 || !isShaking) {
+                isShaking = true;
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        Log.d("ShakeActivity", "shaking!!!");
+                        // TODO showShakeResult(shakeOption);
+                    }
+                };
+                thread.start();
+            }
         }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // TODO
     }
 
     enum ShakeOption {
