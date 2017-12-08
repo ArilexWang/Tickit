@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollingContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.taobao.library.VerticalBannerView
+                android:id="@+id/bannerView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:animDuration="1000"
+                app:gap="2000"/>
+
+
+
+            <FrameLayout
+                android:id="@+id/contentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_toRightOf="@+id/bottomBar" />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+        <!-- Your loooooong scrolling content here. -->
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:bb_activeTabColor="@color/green"
+        app:bb_inActiveTabColor="@color/grey"
+        app:bb_behavior="iconsOnly"
+        app:bb_badgesHideWhenActive="true"
+        app:bb_longPressHintsEnabled="true"
+        app:bb_showShadow="true"
+        app:bb_tabXmlResource="@xml/bottombar_tabs">
+    </com.roughike.bottombar.BottomBar>
+
+
+
+
+</RelativeLayout>
