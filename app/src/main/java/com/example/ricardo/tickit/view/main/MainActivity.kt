@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         println("main")
 
-        signin_entry.setOnClickListener(View.OnClickListener {
+        signin_entry.setOnClickListener {
             // Finish the registration screen and return to the Login activity
             val intent = Intent(applicationContext, SignInActivity::class.java)
             startActivity(intent)
@@ -24,17 +24,16 @@ class MainActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.abc_slide_in_bottom,R.anim.abc_slide_in_top )
             //第一个参数为第一个Activity离开时的动画，第二参数为所进入的Activity的动画效果
 
-        })
+        }
 
-        signup_entry.setOnClickListener(View.OnClickListener {
+        signup_entry.setOnClickListener{
             // Finish the registration screen and return to the Login activity
             val intent = Intent(applicationContext, SignUpActivity::class.java)
             startActivity(intent)
             finish()
             overridePendingTransition(R.anim.abc_slide_in_bottom,R.anim.abc_slide_in_top )
             //第一个参数为第一个Activity离开时的动画，第二参数为所进入的Activity的动画效果
-
-        })
+        }
 
     }
 }

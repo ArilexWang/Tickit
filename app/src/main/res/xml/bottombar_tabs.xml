@@ -1,0 +1,22 @@
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@mipmap/ic_home"
+        title="Home"
+        barColorWhenSelected="@color/white" />
+    <tab
+        id="@+id/tab_category"
+        icon="@mipmap/ic_category"
+        title="Category"
+        barColorWhenSelected="@color/white" />
+    <tab
+        id="@+id/tab_cart"
+        icon="@mipmap/ic_cart"
+        title="Cart"
+        barColorWhenSelected="@color/white" />
+    <tab
+        id="@+id/tab_profile"
+        icon="@mipmap/ic_profile"
+        title="Profile"
+        barColorWhenSelected="@color/white" />
+</tabs>

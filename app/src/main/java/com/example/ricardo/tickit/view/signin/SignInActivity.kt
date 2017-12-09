@@ -29,19 +29,14 @@ class SignInActivity: BaseActivity() {
 
         //input_studentID.addTextChangedListener(new TextWatcher)
 
-        btn_signin.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                Signin()
-                }
-            })
+        btn_signin.setOnClickListener{ Signin() }
 
-        link_signup.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
+        link_signup.setOnClickListener{
                 val intent = Intent()
                 intent.setClass(this@SignInActivity,SignUpActivity::class.java)
                 startActivity(intent)
-            }
-        })
+        }
+
 
     }
 

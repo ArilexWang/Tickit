@@ -1,13 +1,25 @@
 <resources>
     <string name="app_name">Tickit</string>
+    <!--Main page-->
     <string name="app_name_b">T I C K I T</string>
+    <string name="main_tip">No account yet? Create one</string>
     <!--Signin page-->
     <string name="signin">Sign In</string>
+    <string name="ID_hint">Student ID</string>
+    <string name="sign_in_password_hint">Password</string>
+    <string name="sign_in_login">Login</string>
+    <string name="sign_in_tip">No account yet? Create one</string>
     <string name="greetings">Good to see you again !</string>
     <!--Signup page-->
     <string name="signup">Sign Up</string>
     <string name="firstGreeting">Nice to meet you !</string>
     <string name="account_hint">Account</string>
     <string name="password_hint">Password</string>
+    <string name="nickname_hint">NickName</string>
+    <string name="real_name_hint">realName</string>
+    <string name="mobile_hint">Mobile Number</string>
+    <string name="reenter_password_hint">Re-enter Password</string>
+    <string name="creat_account_hint">Create Account</string>
+    <string name="login_hint">Already a member? Login</string>
 
 </resources>
