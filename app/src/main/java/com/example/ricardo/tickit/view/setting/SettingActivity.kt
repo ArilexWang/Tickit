@@ -72,6 +72,7 @@ class SettingActivity:BaseActivity(), SettingView{
 
                 override fun onPhotoTaken(bytes: ByteArray?, filePath: String?) {
                     Toast.makeText(baseContext, "onPhotoTaken " + filePath!!, Toast.LENGTH_SHORT).show()
+                    presenter.postAvatar(filePath)
                 }
             },
                     "/storage/self/primary",

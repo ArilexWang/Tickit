@@ -1,4 +1,4 @@
-package com.example.ricardo.tickit.data.network.api;
+package com.example.ricardo.tickit.data.network.utils;
 
 import com.qiniu.android.common.FixedZone;
 import com.qiniu.android.common.Zone;

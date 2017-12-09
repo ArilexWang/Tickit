@@ -1,4 +1,4 @@
-package com.example.ricardo.tickit.data.network.api;
+package com.example.ricardo.tickit.data.network.utils;
 
 import com.qiniu.android.http.Client;
 import com.qiniu.android.utils.StringMap;
