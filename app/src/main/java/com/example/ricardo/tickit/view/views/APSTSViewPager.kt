@@ -10,7 +10,7 @@ import android.view.MotionEvent
  * Created by yuhanyin on 2017/12/8.
  */
 
-public class APSTSViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ViewPager(context, attrs) {
+class APSTSViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ViewPager(context, attrs) {
     private var mNoFocus = false //if true, keep View don't move
 
     override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
