@@ -9,9 +9,7 @@ public class QiniuImageLoader {
 
     private static UploadManager instance;
 
-    private QiniuImageLoader() {
-
-    }
+    private QiniuImageLoader() {}
 
     //获取UploadManager
     public static UploadManager getInstance() {
