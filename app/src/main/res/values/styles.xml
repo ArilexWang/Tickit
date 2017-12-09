@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
     <style name="weibo_icon_style">
         <item name="android:background">@drawable/weibo_tab_bg_normal</item>
         <item name="apTabBackground">@drawable/weibo_tab_bg_normal</item>
@@ -112,6 +113,12 @@
 
     </style>
 
+
+
+
+    <style name="ThemeFullscreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
 
 
 </resources>

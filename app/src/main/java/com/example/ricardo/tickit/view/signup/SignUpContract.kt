@@ -8,14 +8,13 @@ import com.example.ricardo.tickit.data.model.User
  * Created by Ricardo on 2017/11/13.
  */
 
-
+//接口类，将所用函数定义在这里，带上注释
 interface SignUpContract {
-    interface View : BaseView<Presenter>{
 
-    }
 
     interface Presenter : BasePresenter {
-        //fun loadUser():List<User>
+
+        //将账户信息发送到服务器
         fun postAccount(user: User)
     }
 }

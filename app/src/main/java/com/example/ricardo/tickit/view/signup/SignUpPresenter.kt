@@ -5,6 +5,7 @@ import com.example.ricardo.tickit.data.network.repository.UserRepository
 import com.example.ricardo.tickit.extensions.applySchedulers
 import com.example.ricardo.tickit.extensions.plusAssign
 import com.example.ricardo.tickit.extensions.subscribeBy
+import com.example.ricardo.tickit.greendao.gen.GDUserDao
 import io.reactivex.disposables.CompositeDisposable
 
 /**
@@ -15,26 +16,14 @@ class SignUpPresenter(val view: SignUpView, val respository: UserRepository): Si
 
     protected var subscriptins = CompositeDisposable()
 
-    var _view: SignUpContract.View? = null
-
-    //var _userDao: UserDao? = null
-
-//
-//    override fun loadUser() : List<User>{
-//        val users = _userDao!!.queryBuilder()
-//        val userlist = users.list()
-//        for (i in userlist){
-//            println(i.userName)
-//        }
-//        return userlist
-//    }
+    var mUserDao: GDUserDao? = null
 
     override fun postAccount(user: User) {
         subscriptins += respository.postAccount(user)
                 .applySchedulers()
                 .subscribeBy (
-                        onSuccess = view::show,
-                        onError = view::showError
+                        onSuccess = view::onSuccess,
+                        onError = view::onError
                 )
     }
 
