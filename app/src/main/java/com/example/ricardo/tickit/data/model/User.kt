@@ -30,4 +30,6 @@ class User(
     )
     constructor(id: String, nickName: String,realName: String, mobileNumber: String,password: String):
             this(id, nickName, realName, mobileNumber, password, "")
+
+    constructor():this("","","","","")
 }
