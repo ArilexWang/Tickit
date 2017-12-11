@@ -22,7 +22,7 @@
         <activity android:name=".view.signup.SignUpActivity">
         </activity>
         <activity
-            android:name=".view.setting.SettingActivity"
+            android:name=".view.ShakeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeFullscreen">
             <intent-filter>
@@ -31,8 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.ShakeActivity">
-        </activity>
+        <!--<activity android:name=".view.ShakeActivity">-->
+        <!--</activity>-->
     </application>
 
 </manifest>

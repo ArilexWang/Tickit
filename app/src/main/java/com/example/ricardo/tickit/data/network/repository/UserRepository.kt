@@ -11,7 +11,10 @@ import io.reactivex.Single
 
 interface UserRepository{
     fun postAccount(user: User): Single<List<User>>
+
     fun signIn(studentID: String, password: String): Single<List<User>>
+
+    fun updateUserInfo(user: User): Single<String>
 
     companion object : Provider<UserRepository>() {
         override fun creator() =  UserRepositoryImpl()

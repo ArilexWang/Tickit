@@ -1,4 +1,4 @@
-package com.example.ricardo.tickit.data.network.api;
+package com.example.ricardo.tickit.data.network.utils;
 
 import java.nio.charset.Charset;
 
