@@ -1,6 +1,7 @@
 package com.example.ricardo.tickit.extensions
 
 import com.example.ricardo.tickit.App
+import com.example.ricardo.tickit.base.BasePresenter
 import com.example.ricardo.tickit.view.common.BaseActivity
 
 /**

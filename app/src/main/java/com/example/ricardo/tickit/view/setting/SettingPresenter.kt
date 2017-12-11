@@ -1,7 +1,12 @@
 package com.example.ricardo.tickit.view.setting
 
+import com.example.ricardo.tickit.data.entity.GDUser
+import com.example.ricardo.tickit.data.model.User
+import com.example.ricardo.tickit.data.network.repository.UserRepository
 import com.example.ricardo.tickit.data.network.utils.Auth
 import com.example.ricardo.tickit.data.network.utils.Config
+import com.example.ricardo.tickit.extensions.loadDaoSession
+import com.example.ricardo.tickit.greendao.gen.GDUserDao
 import java.text.SimpleDateFormat
 import java.util.*
 import org.json.JSONObject
@@ -15,6 +20,8 @@ import com.qiniu.android.storage.UploadManager
  */
 class SettingPresenter (val view: SettingView): SettingContract.Presenter{
 
+
+    var userDao:GDUserDao? = null
 
     override fun start() {
 
@@ -31,13 +38,24 @@ class SettingPresenter (val view: SettingView): SettingContract.Presenter{
                 val headpicPath = Config.TEST_DOMAIN + key
 
             }
+            else{
+
+            }
 
         }, null)
+    }
+
+    override fun updateUserInfo(user: User) {
+
     }
 
 
     override fun onViewDestroyed() {
 
+    }
+
+    companion object {
+        var tempUser: User = User()
     }
 
 }

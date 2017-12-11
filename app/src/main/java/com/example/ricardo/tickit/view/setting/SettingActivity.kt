@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.ricardo.tickit.R
 import com.example.ricardo.tickit.base.BasePresenter
+import com.example.ricardo.tickit.data.network.repository.UserRepository
 import com.example.ricardo.tickit.view.common.BaseActivity
 import com.github.florent37.camerafragment.CameraFragment
 import com.github.florent37.camerafragment.CameraFragmentApi
@@ -27,15 +28,17 @@ import java.util.jar.Manifest
 class SettingActivity:BaseActivity(), SettingView{
     override val presenter by lazy { SettingPresenter(this) }
 
-
     val settingView:CameraSettingsView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_setting)
         addCameraButton.setOnClickListener{ onAddCameraClicked()  }
         record_button.setOnClickListener{ onRecordButtonClicked() }
         front_back_camera_switcher.setOnClickListener{ onSwitchCameraClicked() }
+
 
     }
 
