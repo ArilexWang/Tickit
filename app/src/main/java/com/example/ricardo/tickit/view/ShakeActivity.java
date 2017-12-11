@@ -28,7 +28,7 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
             float y = event.values[1];
             float z = event.values[2];
 
-            if (Math.abs(x) > 17 || Math.abs(y) > 17 || Math.abs(z) > 17 || !isShaking) {
+            if ((Math.abs(x) > 17 || Math.abs(y) > 17 || Math.abs(z) > 17) && !isShaking) {
                 isShaking = true;
                 Thread thread = new Thread() {
                     @Override
@@ -61,8 +61,11 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_shake);
         initSensor();
         Button button1 = (Button) findViewById(R.id.shake_button_1);
+        Log.d("ShakeActivity", (button1 == null) ? "yes" : "no");
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,8 +73,6 @@ public class ShakeActivity extends AppCompatActivity implements SensorEventListe
             }
         });
         // TODO button 2 & 3
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shake);
     }
 
     @Override
