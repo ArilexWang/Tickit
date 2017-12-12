@@ -12,12 +12,12 @@ import kotlinx.android.parcel.Parcelize
 @SuppressLint("ParceCreator")
 @Parcelize
 class User(
-        val id: String,
-        val nickName: String,
-        val realName: String,
-        val mobileNumber: String,
-        val password: String,
-        val avatar: String
+        var id: String,
+        var nickName: String,
+        var realName: String,
+        var mobileNumber: String,
+        var password: String,
+        var avatar: String
 ) :Parcelable {
     constructor(dto: UserDto): this(
             id = dto.pk,
