@@ -1,59 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
 
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/nameViewLayout"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/nameView"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/sign_padding_top"
+        android:paddingLeft="@dimen/main_margin"
+        android:paddingRight="@dimen/main_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/signup"
+            android:layout_height="@dimen/sign_text_height"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/sign_text_size"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/firstGreeting"
+            android:layout_height="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:textColor="@color/dark"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Name Label -->
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/name_hint"
-            />
+            android:layout_marginTop="@dimen/sign_margin"
+            android:layout_marginBottom="@dimen/sign_margin">
+            <EditText android:id="@+id/input_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/nickname_hint" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Student ID Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sign_margin"
+            android:layout_marginBottom="@dimen/sign_margin">
+            <EditText android:id="@+id/input_studentID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/ID_hint" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sign_margin"
+            android:layout_marginBottom="@dimen/sign_margin">
+            <EditText android:id="@+id/input_realName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/real_name_hint" />
         </android.support.design.widget.TextInputLayout>
 
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/accountViewLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/accountView"
+        <!-- mobile number -->
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/account_hint"
-            />
-        ></android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="@dimen/sign_margin"
+            android:layout_marginBottom="@dimen/sign_margin">
+            <EditText android:id="@+id/input_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="@string/mobile_hint" />
+        </android.support.design.widget.TextInputLayout>
 
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/passwordViewLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <EditText
-            android:id="@+id/passwordView"
+        <!-- Password Label -->
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/password_hint"
-            />
-        ></android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="@dimen/sign_margin"
+            android:layout_marginBottom="@dimen/sign_margin">
+            <EditText android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/password_hint"/>
+        </android.support.design.widget.TextInputLayout>
 
-        <Button
+        <!-- Password Re-enter Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sign_margin"
+            android:layout_marginBottom="@dimen/sign_margin">
+            <EditText android:id="@+id/input_reEnterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/reenter_password_hint"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Signup Button -->
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/signupBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="注册"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:padding="@dimen/sign_btn_margin"
+            android:text="@string/creat_account_hint"/>
 
+        <TextView android:id="@+id/signinLinkBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/login_hint"
+            android:gravity="center"
+            android:textSize="@dimen/text_size"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

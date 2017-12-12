@@ -26,17 +26,89 @@ class SignUpActivity : BaseActivity(),SignUpView{
         presenter.mUserDao = _userDao
 
         signupBtn.setOnClickListener{ signupClick(presenter) }
-
+        signinLinkBtn.setOnClickListener{ signinLinkBtnClick() }
     }
 
 
     //按钮点击处理事件
     fun signupClick(presenter: SignUpPresenter?){
-        println("click")
+        val tUser = User()
 
-        val mUser = User("1111112","2327","1127","1234567812","22222")
+        //如果输入合法
+        if (validate()){
 
-        presenter!!.postAccount(mUser)
+            tUser.nickName = input_nickname.getText().toString()
+            tUser.id = input_studentID.getText().toString()
+            tUser.realName = input_realName.getText().toString()
+            tUser.mobileNumber = input_mobile.getText().toString()
+            tUser.password = input_password.getText().toString()
+
+            presenter!!.postAccount(tUser)
+        }
+
+
+    }
+
+    fun signinLinkBtnClick(){
+
+    }
+
+    //检查输入是否合法
+    fun validate(): Boolean {
+        var valid = true
+3
+        val nickname = input_nickname.getText().toString()
+        val studentID = input_studentID.getText().toString()
+        val realName = input_realName.getText().toString()
+        val mobile = input_mobile.getText().toString()
+        val password = input_password.getText().toString()
+        val reEnterPassword = input_reEnterPassword.getText().toString()
+
+        if (nickname.isEmpty() || nickname.length < 3) {
+            input_nickname.setError("at least 3 characters")
+            valid = false
+        } else {
+            input_nickname.setError(null)
+        }
+
+        // todo: check if student ID in list
+        if (studentID.isEmpty() || studentID.length != 7) {
+            input_studentID.setError("Enter Valid Address")
+            valid = false
+        } else {
+            input_studentID.setError(null)
+        }
+
+        // todo: check if name matches the student ID
+        if (realName.isEmpty()) {
+            input_realName.setError("enter a valid email address")
+            valid = false
+        } else {
+            input_realName.setError(null)
+        }
+
+        if (mobile.isEmpty() || mobile.length != 11) {
+            input_mobile.setError("Enter Valid Mobile Number")
+            valid = false
+        } else {
+            input_mobile.setError(null)
+        }
+
+        if (password.isEmpty() || password.length < 4 || password.length > 10) {
+            input_password.setError("between 4 and 10 alphanumeric characters")
+            valid = false
+        } else {
+            input_password.setError(null)
+        }
+
+        if (reEnterPassword.isEmpty() || reEnterPassword.length < 4 || reEnterPassword.length > 10 || reEnterPassword != password) {
+            input_reEnterPassword.setError("Password Do not match")
+            valid = false
+        } else {
+            input_reEnterPassword.setError(null)
+        }
+
+        return valid
 
     }
 
