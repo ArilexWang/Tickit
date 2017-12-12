@@ -26,7 +26,9 @@ class SignUpActivity : BaseActivity(),SignUpView{
         presenter.mUserDao = _userDao
 
         signupBtn.setOnClickListener{ signupClick(presenter) }
+
         signinLinkBtn.setOnClickListener{ signinLinkBtnClick() }
+
     }
 
 
@@ -137,7 +139,6 @@ class SignUpActivity : BaseActivity(),SignUpView{
 
         //如果本地数据库为空，插入账户数据
         if (list.isEmpty() || list.size <= 0){
-            println(" is Empty ")
 
             val gdUser: GDUser = GDUser(item)
 
