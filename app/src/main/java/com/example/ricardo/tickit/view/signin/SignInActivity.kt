@@ -35,7 +35,6 @@ class SignInActivity:BaseActivity(),SignInView{
 
         getLocalUser(_userDao!!)
 
-
     }
 
     fun getLocalUser(userDao: GDUserDao){
@@ -74,7 +73,7 @@ class SignInActivity:BaseActivity(),SignInView{
         println(items[0].avatar)
 
         //跳转界面
-        
+
     }
 
     //登录失败后调用函数
