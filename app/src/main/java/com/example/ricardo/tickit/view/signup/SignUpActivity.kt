@@ -23,7 +23,8 @@ import com.example.ricardo.tickit.view.common.BaseActivity
 import com.example.ricardo.tickit.view.signin.SignInActivity
 import kotlinx.android.synthetic.main.activity_signup.*
 
-class SignUpActivity : BaseActivity(),SignUpView{
+class SignUpActivity : BaseActivity(),SignUpView {
+
 
     override val presenter by lazy { SignUpPresenter(this, UserRepository.get()) }
 
@@ -42,7 +43,7 @@ class SignUpActivity : BaseActivity(),SignUpView{
             val intent = Intent(applicationContext, SignInActivity::class.java)
             startActivity(intent)
             finish()
-            overridePendingTransition(R.anim.abc_slide_in_bottom,R.anim.abc_slide_in_top )
+            overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_in_top)
             //第一个参数为第一个Activity离开时的动画，第二参数为所进入的Activity的动画效果
 
         }
@@ -51,18 +52,12 @@ class SignUpActivity : BaseActivity(),SignUpView{
 
         presenter.mUserDao = _userDao
 
-        signupBtn.setOnClickListener{ signupClick(presenter) }
+        //signupBtn.setOnClickListener { signupClick(presenter) }
 
         println("signup")
     }
 
-    override fun show(items: List<User>) {
 
-    }
-
-    override fun showError(error: Throwable) {
-
-    }
     private fun signup() {
         //Log.d(TAG, "Signup")
 
@@ -73,30 +68,8 @@ class SignUpActivity : BaseActivity(),SignUpView{
 
         btn_signup.setEnabled(false)
 
-        //val progressDialog = ProgressDialog(this@SignupActivity, R.style.AppTheme_Dark_Dialog)
-        //progressDialog.isIndeterminate = true
-        //progressDialog.setMessage("Creating Account...")
-        //progressDialog.show()
-
-    //按钮点击处理事件
-    fun signupClick(presenter: SignUpPresenter?){
-        println("click")
-
-        val mUser = User("1111112","2327","1127","1234567812","22222")
-
-        presenter!!.postAccount(mUser)
-
-
-        android.os.Handler().postDelayed(
-                {
-                    // On complete call either onSignupSuccess or onSignupFailed
-                    // depending on success
-                    onSignupSuccess()
-                    // onSignupFailed();
-
-                    //progressDialog.dismiss()
-                }, 3000)
     }
+
 
     fun onSignupSuccess() {
         btn_signup.setEnabled(true)
@@ -110,7 +83,7 @@ class SignUpActivity : BaseActivity(),SignUpView{
     }
 
 
-    private fun validate(): Boolean {
+    fun validate(): Boolean {
         var valid = true
 
         val nickname = input_nickname.getText().toString()
@@ -128,7 +101,7 @@ class SignUpActivity : BaseActivity(),SignUpView{
         }
 
         // todo: check if student ID in list
-        if (studentID.isEmpty()||studentID.length != 7) {
+        if (studentID.isEmpty() || studentID.length != 7) {
             input_studentID.setError("Enter Valid Address")
             valid = false
         } else {
@@ -143,7 +116,7 @@ class SignUpActivity : BaseActivity(),SignUpView{
             input_realName.setError(null)
         }
 
-        if (mobile.isEmpty() ||mobile.length != 11) {
+        if (mobile.isEmpty() || mobile.length != 11) {
             input_mobile.setError("Enter Valid Mobile Number")
             valid = false
         } else {
@@ -166,32 +139,54 @@ class SignUpActivity : BaseActivity(),SignUpView{
 
         return valid
 
-    //注册成功后调用的函数，用户信息存入greenDao,跳转界面
-    override fun onSuccess(items: List<User>) {
 
+
+    }
+
+
+    //按钮点击处理事件
+    fun signupClick(presenter: SignUpPresenter?) {
+        println("click")
+
+        val mUser = User("1111112", "2327", "1127", "1234567812", "22222")
+
+        presenter!!.postAccount(mUser)
+
+
+        android.os.Handler().postDelayed(
+                {
+                    // On complete call either onSignupSuccess or onSignupFailed
+                    // depending on success
+                    //onSuccess()
+                    // onSignupFailed();
+
+                    //progressDialog.dismiss()
+                }, 3000)
+    }
+
+
+    override fun onSuccess(items: List<User>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         println(items[0].avatar)
 
         val user = items[0]
 
         saveUserToLocal(user, presenter.mUserDao!!)
-
     }
 
-    //注册失败，给出一系列提示
     override fun onError(error: Throwable) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         println(error)
-
     }
 
-
-    //存入本地服务器
-    override fun saveUserToLocal(item: User, userDao: GDUserDao){
+    override fun saveUserToLocal(item: User, userDao: GDUserDao) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         val db = userDao!!.queryBuilder()
 
         val list = db.list()
 
         //如果本地数据库为空，插入账户数据
-        if (list.isEmpty() || list.size <= 0){
+        if (list.isEmpty() || list.size <= 0) {
             println(" is Empty ")
 
             val gdUser: GDUser = GDUser(item)
@@ -209,7 +204,7 @@ class SignUpActivity : BaseActivity(),SignUpView{
 
             val db = userDao!!.queryBuilder()
             val list = db.list()
-            if (list.isEmpty() || list.size <= 0){
+            if (list.isEmpty() || list.size <= 0) {
 
                 val gdUser: GDUser = GDUser(item)
                 userDao.insert(gdUser)
@@ -221,8 +216,8 @@ class SignUpActivity : BaseActivity(),SignUpView{
 
         }
 
-    }
 
+    }
 
 
 }

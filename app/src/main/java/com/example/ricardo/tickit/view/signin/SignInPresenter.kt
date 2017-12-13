@@ -7,8 +7,6 @@ import com.example.ricardo.tickit.data.network.repository.UserRepository
 
 
 
-class SignInPresenter(): BasePresenter{
-
 class SignInPresenter(val view: SignInView,val repository: UserRepository): SignInContract.Presenter{
 
 

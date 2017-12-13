@@ -26,8 +26,6 @@
 
     <!--sign in/up hint-->
     <string name="name_hint">Name</string>
-    <string name="account_hint">Account</string>
-    <string name="password_hint">Password</string>
 
     <!--shake view buttons-->
     <string name="shake_option_1">show</string>

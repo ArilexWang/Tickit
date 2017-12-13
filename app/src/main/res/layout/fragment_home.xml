@@ -8,13 +8,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.taobao.library.VerticalBannerView
-        android:id="@+id/bannerView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/switchBanner_height">
 
-    </com.taobao.library.VerticalBannerView>
-
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to our home" />
 
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

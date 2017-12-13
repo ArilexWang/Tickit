@@ -33,9 +33,9 @@ import kotlinx.android.synthetic.main.activity_views.*
 class ViewsActivity :AppCompatActivity(),ViewPager.OnPageChangeListener{
 
     private var mHomeFragment: HomeFragment? = null
-    private var mCategoryFragment: CategoryFragment? =null
-    private var mCartFragment: CartFragment? = null
-    private var mProfileFragment: ProfileFragment? = null
+    public var mCategoryFragment: CategoryFragment? =null
+    public var mCartFragment: CartFragment? = null
+    public var mProfileFragment: ProfileFragment? = null
 
     private var mSize = 0
 
@@ -47,7 +47,7 @@ class ViewsActivity :AppCompatActivity(),ViewPager.OnPageChangeListener{
 
     private fun init() {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        tabs.setOnClickListener {
+        ivCenterBtn.setOnClickListener {
             Toast.makeText(this@ViewsActivity, "Center Btn is Clicked.", Toast.LENGTH_SHORT).show()
         }
 
@@ -87,6 +87,7 @@ class ViewsActivity :AppCompatActivity(),ViewPager.OnPageChangeListener{
 
     }
 
+    @Suppress("UNCHECKED_CAST")
     inner class FragmentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm), AdvancedPagerSlidingTabStrip.IconTabProvider, AdvancedPagerSlidingTabStrip.LayoutProvider, AdvancedPagerSlidingTabStrip.TipsProvider {
 
 
@@ -95,24 +96,27 @@ class ViewsActivity :AppCompatActivity(),ViewPager.OnPageChangeListener{
                 when (position) {
                     VIEW_FIRST -> {
                         if (null == mHomeFragment) mHomeFragment = HomeFragment.instance()
-                        return mHomeFragment!!//mHomeFragment
+
+                        //addFragment(mHomeFragment!!)
+                        //showFragment(mHomeFragment)
+                        return mHomeFragment//mHomeFragment
                     }
 
                     VIEW_SECOND -> {
                         if (null == mCategoryFragment) mCategoryFragment = CategoryFragment.instance()
-                        return mCategoryFragment as Fragment!!
+                        return mCategoryFragment
                     }
 
                     VIEW_THIRD -> {
                         if (null == mCartFragment)
                             mCartFragment = CartFragment.instance()
-                        return mCartFragment as Fragment!!
+                        return mCartFragment
                     }
 
                     VIEW_FOURTH -> {
                         if (null == mProfileFragment)
                             mProfileFragment = ProfileFragment.instance()
-                        return mProfileFragment as Fragment
+                        return mProfileFragment
                     }
                     else -> {
 
@@ -188,10 +192,10 @@ class ViewsActivity :AppCompatActivity(),ViewPager.OnPageChangeListener{
          override fun <T : Any?> getPageSelectIcon(position: Int): T {
             if (position in 0..(VIEW_SIZE - 1)) {
                 when (position) {
-                    VIEW_FIRST -> return R.mipmap.tabbar_home as T
-                    VIEW_SECOND -> return R.mipmap.tabbar_message_center as T
-                    VIEW_THIRD -> return R.mipmap.tabbar_discover as T
-                    VIEW_FOURTH -> return R.mipmap.tabbar_profile as T
+                    VIEW_FIRST -> return R.mipmap.tabbar_home_select as T
+                    VIEW_SECOND -> return R.mipmap.tabbar_category_select as T
+                    VIEW_THIRD -> return R.mipmap.tabbar_cart_select as T
+                    VIEW_FOURTH -> return R.mipmap.tabbar_profile_select as T
                     else -> {
                     }
                 }
@@ -203,10 +207,10 @@ class ViewsActivity :AppCompatActivity(),ViewPager.OnPageChangeListener{
         override fun <T : Any?> getPageIcon(position: Int): T {
             if (position in 0..(VIEW_SIZE - 1)) {
                 when (position) {
-                    VIEW_FIRST -> return R.mipmap.tabbar_home_selected as T
-                    VIEW_SECOND -> return R.mipmap.tabbar_message_center_highlighted as T
-                    VIEW_THIRD -> return R.mipmap.tabbar_discover_highlighted as T
-                    VIEW_FOURTH -> return R.mipmap.tabbar_profile_highlighted as T
+                    VIEW_FIRST -> return R.mipmap.tabbar_home as T
+                    VIEW_SECOND -> return R.mipmap.tabbar_category as T
+                    VIEW_THIRD -> return R.mipmap.tabbar_cart as T
+                    VIEW_FOURTH -> return R.mipmap.tabbar_profile as T
                     else -> {
                     }
                 }

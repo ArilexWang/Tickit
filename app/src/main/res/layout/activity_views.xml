@@ -19,7 +19,7 @@
             android:layout_height="34dp"
             android:padding="5dp"
             android:layout_centerInParent="true"
-            android:background="#fa8100"
+            android:background="@color/green"
             android:src="@mipmap/tabbar_compose_icon_add_highlighted"/>
     </RelativeLayout>
 
@@ -30,45 +30,3 @@
         android:layout_height="fill_parent"
         android:layout_above="@id/rl_tabs"/>
 </RelativeLayout>
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:orientation="vertical" >-->
-
-    <!--<android.support.v4.widget.NestedScrollView-->
-        <!--android:id="@+id/scrollingContent"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-
-
-            <!--<FrameLayout-->
-                <!--android:id="@+id/contentContainer"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="400dp"-->
-                <!--android:layout_toRightOf="@+id/bottomBar" />-->
-
-
-
-        <!--&lt;!&ndash; Your loooooong scrolling content here. &ndash;&gt;-->
-
-    <!--</android.support.v4.widget.NestedScrollView>-->
-
-    <!--<com.roughike.bottombar.BottomBar-->
-        <!--android:id="@+id/bottomBar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="60dp"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--app:bb_activeTabColor="@color/green"-->
-        <!--app:bb_inActiveTabColor="@color/grey"-->
-        <!--app:bb_behavior="iconsOnly"-->
-        <!--app:bb_badgesHideWhenActive="true"-->
-        <!--app:bb_longPressHintsEnabled="true"-->
-        <!--app:bb_showShadow="true"-->
-        <!--app:bb_tabXmlResource="@xml/bottombar_tabs">-->
-    <!--</com.roughike.bottombar.BottomBar>-->
-
-
-
-
-<!--</RelativeLayout>-->
