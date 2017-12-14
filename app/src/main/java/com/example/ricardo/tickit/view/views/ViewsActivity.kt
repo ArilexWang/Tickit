@@ -96,10 +96,7 @@ class ViewsActivity :AppCompatActivity(),ViewPager.OnPageChangeListener{
                 when (position) {
                     VIEW_FIRST -> {
                         if (null == mHomeFragment) mHomeFragment = HomeFragment.instance()
-
-                        //addFragment(mHomeFragment!!)
-                        //showFragment(mHomeFragment)
-                        return mHomeFragment//mHomeFragment
+                        return mHomeFragment
                     }
 
                     VIEW_SECOND -> {

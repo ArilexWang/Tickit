@@ -21,7 +21,7 @@
         <item name="apTabShouldExpand">false</item>
         <item name="apTabPaddingLeftRight">8dp</item>
         <item name="apTabPaddingTopBottom">6dp</item>
-        <item name="apTabTextSelectColor">@color/home_bar_text_push</item>
+        <item name="apTabTextSelectColor">@color/green</item>
     </style>
 
 
@@ -62,6 +62,13 @@
 
 
 
+
+
+    <style name="ThemeFullscreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
     <style name="me_vertical_view_style">
         <item name="android:layout_width">0.5dip</item>
         <item name="android:layout_height">match_parent</item>
@@ -81,15 +88,16 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:clickable">true</item>
         <item name="android:drawablePadding">5dp</item>
-
+        <item name="android:background">@drawable/list_view_item_click</item>
         <item name="android:gravity">center_horizontal</item>
+
         <item name="android:textSize">@dimen/textSize_14</item>
     </style>
 
     <style name="me_common_item_relativeLayout_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
-
+        <item name="android:background">@drawable/list_view_item_click</item>
         <item name="android:clickable">true</item>
         <item name="android:paddingLeft">15dp</item>
     </style>
@@ -101,8 +109,12 @@
         <item name="android:layout_marginLeft">3dp</item>
     </style>
 
-
-
+    <style name="me_common_item_title_textView_style" >
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">@dimen/textSize_14</item>
+        <!--<item name="android:textColor">@color/textColor_32</item>-->
+    </style>
 
     <style name="me_common_item_arrow_right_imageView_style">
         <item name="android:layout_width">wrap_content</item>
@@ -110,15 +122,35 @@
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_centerVertical">true</item>
+        <!--<item name="android:src">@mipmap/arrow_right_my_gray</item>-->
+    </style>
 
+    <style name="me_common_item_count_textView_style" >
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:gravity">center</item>
+        <!--<item name="android:textColor">@color/gray01</item>-->
+        <!--<item name="android:textSize">@dimen/textSize_12</item>-->
     </style>
 
 
-
-
-    <style name="ThemeFullscreen" parent="AppTheme">
-        <item name="android:windowFullscreen">true</item>
+    <style name="more_common_item_textView_style" parent="me_common_item_title_textView_style">
+        <item name="android:textSize">@dimen/textSize_16</item>
     </style>
-
+    <style name="more_common_checkBox_style">
+        <item name="android:layout_width">47dp</item>
+        <item name="android:layout_height">23dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@drawable/btn_switch</item>
+    </style>
+    <style name="more_common_desc_textView_style" >
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textSize">@dimen/textSize_15</item>
+    </style>
 
 </resources>

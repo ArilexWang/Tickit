@@ -58,11 +58,12 @@ dependencies {
     implementation 'com.github.Rowandjj:VerticalBannerView:1.0'
     //fragment
     implementation 'homhomlin.lib:apsts:1.8.0'
-    implementation 'com.facebook.fresco:fresco:0.9.0'
+    //implementation 'com.facebook.fresco:fresco:0.9.0'
     implementation 'com.android.support:design:26.1.0'
     implementation 'homhomlin.lib:frescoimageview:1.2.0'
 
     compile 'com.qiniu:qiniu-android-sdk:7.3.+'
     implementation 'com.github.florent37:camerafragment:1.0.8'
+    implementation 'com.facebook.fresco:fresco:0.12.0'
 
 }
