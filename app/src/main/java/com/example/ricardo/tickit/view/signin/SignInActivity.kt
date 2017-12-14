@@ -1,83 +1,99 @@
 package com.example.ricardo.tickit.view.signin
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import android.util.Patterns
-import android.view.View
-import android.widget.EditText
-import android.widget.ProgressBar
 import com.example.ricardo.tickit.R
-import com.example.ricardo.tickit.base.BasePresenter
+import com.example.ricardo.tickit.data.model.User
 import com.example.ricardo.tickit.data.network.repository.UserRepository
+import com.example.ricardo.tickit.extensions.loadDaoSession
+import com.example.ricardo.tickit.extensions.saveUserToLocal
+import com.example.ricardo.tickit.greendao.gen.GDUserDao
 import com.example.ricardo.tickit.view.common.BaseActivity
 import com.example.ricardo.tickit.view.signup.SignUpActivity
-import com.example.ricardo.tickit.view.signup.SignUpPresenter
+import com.example.ricardo.tickit.view.views.ViewsActivity
 import kotlinx.android.synthetic.main.activity_signin.*
 
+/**
+ * Created by Ricardo on 2017/11/13.
+ */
 
+class SignInActivity:BaseActivity(),SignInView{
+    override val presenter by lazy { SignInPresenter(this, UserRepository.get()) }
 
-class SignInActivity(override val presenter: BasePresenter) : BaseActivity() {
+    var _userDao: GDUserDao? = null
 
-    //override val presenter by lazy { SignInPresenter() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
 
-        //input_studentID.addTextChangedListener(new TextWatcher)
+        _userDao = loadDaoSession().gdUserDao
 
-        btn_signin.setOnClickListener{ Signin() }
+        presenter.mUserDao = _userDao
 
-        link_signup.setOnClickListener{
-                val intent = Intent()
-                intent.setClass(this@SignInActivity,SignUpActivity::class.java)
-                startActivity(intent)
+        btn_signin.setOnClickListener{ signinBtnClick(presenter) }
+
+        link_signup.setOnClickListener{ linkSignupClick() }
+
+        getLocalUser(_userDao!!)
+
+    }
+
+    fun getLocalUser(userDao: GDUserDao){
+        val db = userDao!!.queryBuilder()
+
+        val list = db.list()
+
+        if (!list.isEmpty()){
+            val id = list[0].id
+            val password = list[0].password
+
+            input_studentID.setText(id)
+            input_password.setText(password)
         }
 
 
     }
 
-    private fun Signin() {
-        //Log( "Login")
+    fun linkSignupClick(){
+        val intent = Intent()
+        intent.setClass(this@SignInActivity, SignUpActivity::class.java)
+        startActivity(intent)
+    }
 
-        if (!validate()) {
-            onSigninFailed()
-            return
+    fun signinBtnClick(presenter: SignInPresenter){
+        println("click")
+        if (validate()){
+            val id = input_studentID.getText().toString()
+            val password = input_password.getText().toString()
+            presenter.postAccount(id,password)
         }
-
-        btn_signin.setEnabled(false)
-
-
-        //val progressbar = ProgressBar()
-
-        //use of progressdialog
-//        val progressDialog = ProgressDialog(this,R.style.AppTheme)
-//
-//
-//                //ProgressDialog(this@LoginActivity, R.style.AppTheme_Dark_Dialog)
-//        progressDialog.isIndeterminate = true
-//        progressDialog.setMessage("Authenticating...")
-//        progressDialog.show()
-//
-//        val inputID = input_studentID.getText().toString()
-//        val password = input_password.getText().toString()
-
-        android.os.Handler().postDelayed({
-                    // On complete call either onLoginSuccess or onLoginFailed
-                    onLoginSuccess()
-                    // onLoginFailed();
-
-                    //progressDialog.dismiss()
-
-                }, 3000)
     }
 
-    private fun onLoginSuccess() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+    //登录成功后调用函数
+    override fun onSuccess(items: List<User>) {
+        println(items[0].avatar)
+
+        val user = items[0]
+
+        saveUserToLocal(user, presenter.mUserDao!!)
+
+        //跳转界面
+
+        val intent = Intent()
+        intent.setClass(this@SignInActivity, ViewsActivity::class.java)
+        startActivity(intent)
+
+
+
     }
 
+    //登录失败后调用函数
+    override fun onError(error: Throwable) {
+
+
+    }
 
     fun validate(): Boolean {
         var valid = true
@@ -104,7 +120,4 @@ class SignInActivity(override val presenter: BasePresenter) : BaseActivity() {
 
         return valid
     }
-
-    private fun onSigninFailed(){}
 }
-

@@ -22,7 +22,7 @@
 
 
         <activity
-            android:name=".view.views.ViewsActivity"
+            android:name=".view.setting.SettingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeFullscreen">
             <intent-filter>
@@ -33,10 +33,11 @@
         </activity>
 
 
-        <!--<activity android:name=".view.profile.ProfileInfoActivity"></activity>-->
-        <!--<activity android:name=".view.signin.SignInActivity"></activity>-->
-
-
+        <activity android:name=".view.profile.ProfileInfoActivity"></activity>
+        <activity android:name=".view.signin.SignInActivity"></activity>
+        <activity android:name=".view.views.ViewsActivity"></activity>
+        <activity android:name=".view.signup.SignUpActivity"></activity>
+        <!--<activity android:name=".view.setting.SettingActivity"></activity>-->
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.ricardo.tickit.R
+import com.example.ricardo.tickit.view.setting.SettingActivity
 import com.example.ricardo.tickit.view.signup.SignUpActivity
 import com.facebook.drawee.backends.pipeline.Fresco
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -25,23 +26,39 @@ class ProfileFragment: android.support.v4.app.Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Fresco.initialize(context)
         val view = inflater!!.inflate(R.layout.fragment_profile, null)
+
         //initView(view)
-        initProfile()
+
+        initProfile(view)
+
+
+
+
         return view
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        systemService.setOnClickListener{
+            val intent = Intent()
+            intent.setClass(this.context,SettingActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 
     private fun initView(view: View?) {
       //  profileDetial = view.findViewById(R.id.imgProfileDetail)
     }
 
-    private fun initProfile() {
+    private fun initProfile(view: View?) {
 
-
-        profileDetail?.setOnClickListener {
-            val intent = Intent()
-            intent.setClass(this.context,ProfileInfoActivity::class.java)
-            startActivity(intent)
-        }
+//        profileDetail!!.setOnClickListener {
+//            val intent = Intent()
+//            intent.setClass(this.context,ProfileInfoActivity::class.java)
+//            startActivity(intent)
+//
+//        }
 
     }
 

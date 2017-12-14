@@ -12,6 +12,6 @@ import com.example.ricardo.tickit.data.model.User
 interface SignInContract {
 
     interface Presenter : BasePresenter {
-
+        fun postAccount(userName:String, password:String)
     }
 }
